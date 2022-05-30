@@ -34,6 +34,6 @@ jobs:
           application_name: cloudproject
           environment_name: Cloudproject-env
           version_label: "the-cloud-project-deployment-${{ steps.format-time.outputs.replaced }}"
-          region: us-east-2
+          region: us-east-1
           deployment_package: deploy.zip
     
