@@ -1,13 +1,13 @@
 version: '3'
 services:
-  frontend:
-    build: 
-      context: ./Frontend
-      dockerfile: Dockerfile
-    ports: 
-      - "3000:3000"
-    stdin_open: true
-    tty: true
+  # frontend:
+  #   build: 
+  #     context: ./Frontend
+  #     dockerfile: Dockerfile
+  #   ports: 
+  #     - "3000:3000"
+  #   stdin_open: true
+  #   tty: true
   nosql-db:
     image: mongo
     ports:
