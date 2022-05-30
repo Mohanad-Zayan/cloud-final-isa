@@ -31,8 +31,8 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          application_name: cloudproject-1
-          environment_name: Cloudproject1-env
+          application_name: cloudproject
+          environment_name: Cloudproject-env
           version_label: "Sample Application-1"
           use_existing_version_if_available: true
           region: us-east-1
