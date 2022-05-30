@@ -34,6 +34,7 @@ jobs:
           application_name: cloudproject
           environment_name: Cloudproject-env
           version_label: "Sample Application"
+          use_existing_version_if_available: true
           region: us-east-1
           deployment_package: deploy.zip
     
