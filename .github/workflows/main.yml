@@ -13,13 +13,26 @@ jobs:
       - name: Generate Deployment Package 
         run: zip -r deploy.zip * -x "**node_modules**"
         
+      - name: Get timestamp
+        uses: gerred/actions/current-time@master
+        id: current-time
+        
+      - name: Run string replace
+        uses: frabert/replace-string-action@master
+        id: format-time
+        with:
+          pattern: '[:\.]+'
+          string: "${{ steps.current-time.outputs.time }}"
+          replace-with: '-'
+          flags: 'g'
+          
       - name: Deploy to EB
-        uses: einaregilsson/beanstalk-deploy@v20
+        uses: einaregilsson/beanstalk-deploy@v14
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name: isa-khir-cloud-project
           environment_name: Isakhircloudproject-env
-          version_label: new_deployment1
-          region: us-east-1
+          version_label: "Sample Application-${{ steps.format-time.outputs.replaced }}"
+          region: us-east-2
           deployment_package: deploy.zip
